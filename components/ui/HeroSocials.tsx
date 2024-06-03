@@ -35,12 +35,12 @@ function HeroSocials() {
       {socials?.map((social, index) => (
         <div
           key={index}
-          className="flex group justify-center items-center flex-grow h-10 relative gap-1 px-2 py-4 rounded-xl bg-white hover:bg-gray-800 cursor-pointer  border border-[#e8eef3]"
+          className="flex group justify-center items-center flex-grow h-10 relative gap-1 px-2 py-4 rounded-xl bg-gray-800 hover:bg-gray-300 cursor-pointer  border border-[#e8eef33b]"
         >
-          <div className="text-[#090513] group-hover:text-white transition-colors duration-300">
+          <div className="text-[#fff] group-hover:text-gray-800 transition-colors duration-300">
             {social?.icon}
           </div>
-          <p className="flex-grow-0 flex-shrink-0 text-sm text-left text-[#090513] group-hover:text-white transition-colors duration-300">
+          <p className="flex-grow-0 flex-shrink-0 text-sm text-left text-[#fff] group-hover:text-gray-800 transition-colors duration-300">
             {social?.text}
           </p>
         </div>
