@@ -4,7 +4,7 @@ import { getMetadata } from "@/lib/metadata";
 import { groq, PortableText } from "next-sanity";
 import {client} from "@/sanity/lib/client";
 import Link from "next/link";
-
+export const revalidate = 30
 type Props = {
   params: { slug: string }
 }

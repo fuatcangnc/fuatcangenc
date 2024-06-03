@@ -3,7 +3,7 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import {client} from "@/sanity/lib/client";
 import { Metadata, ResolvingMetadata } from "next";
-
+export const revalidate = 30
 type Props = {
   params: { slug: string }
 }

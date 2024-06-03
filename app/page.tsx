@@ -7,7 +7,7 @@ import {client, sanityFetch} from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import PostCard from "@/components/ui/PostCard";
 import Bento from "@/components/ui/Bento";
-
+export const revalidate = 30
 const getPosts = async () => {
   try {
     const query = `
