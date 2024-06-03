@@ -3,7 +3,7 @@ import Link from "next/link";
 import Hero from "@/components/ui/Hero";
 import { project } from "@/utils";
 import { groq, PortableText } from "next-sanity";
-import {client} from "@/sanity/lib/client";
+import {client, sanityFetch} from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import PostCard from "@/components/ui/PostCard";
 import Bento from "@/components/ui/Bento";
@@ -18,7 +18,9 @@ const getPosts = async () => {
         publishedAt
       }
     `;
-    const posts = await client.fetch(query);
+    const posts = await sanityFetch({
+      query:query
+    });
     return posts;
   } catch (error) {
     console.log(error);
