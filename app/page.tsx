@@ -47,9 +47,6 @@ const getProjects = async () => {
 export default async function Home() {
   const blogs = await getPosts();
   const projects = await getProjects();
-  if (!blogs || blogs.length === 0) {
-    return <div>No posts found</div>;
-  }
 
   return (
     <main className="flex flex-col ">
