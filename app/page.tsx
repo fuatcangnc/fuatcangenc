@@ -18,9 +18,7 @@ const getPosts = async () => {
         publishedAt
       }
     `;
-    const posts = await sanityFetch({
-      query:query
-    });
+    const posts = await client.fetch(query);
     return posts;
   } catch (error) {
     console.log(error);
