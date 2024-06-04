@@ -16,7 +16,7 @@ function Skills() {
 
           </div>
           <div className="flex justify-center items-start self-stretch flex-grow-0 flex-shrink-0">
-          <SkillCard color="white" size={24} name='FaTwitter'></SkillCard>
+          <SkillCard color="white" size={24} name='FaFigma'></SkillCard>
 
           </div>
           <div className="flex justify-center items-start self-stretch flex-grow-0 flex-shrink-0">

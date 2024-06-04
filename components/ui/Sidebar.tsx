@@ -2,7 +2,10 @@ import React from "react";
 import Skills from "./Skills";
 import Content from "./Content";
 import HeroContent from "./HeroContent";
-
+import FollowerAvatars from "@/public/FollowerAvatars.png"
+import Image from "next/image";
+import Link from "next/link";
+import { FaXTwitter } from "react-icons/fa6";
 function Sidebar() {
   return (
     <div className="flex md:flex-row flex-col justify-start items-start gap-[17px] bg-[#121623] ">
@@ -30,7 +33,7 @@ function Sidebar() {
                   />
                 </svg>
                 <p className="flex-grow-0 flex-shrink-0 text-sm text-left text-[#a8aebf]">
-                  Istanbul, Turkey
+                  Istanbul, Turkiye
                 </p>
               </div>
             </div>
@@ -38,85 +41,17 @@ function Sidebar() {
           <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0">
             <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 relative gap-2">
               <div className="flex-grow-0 flex-shrink-0 w-20 h-6 relative">
-                
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[13px] top-[-1px]"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <circle
-                    cx={12}
-                    cy={12}
-                    r="11.5"
-                    fill="#D9D9D9"
-                    stroke="white"
-                  />
-                </svg>
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[27px] top-[-1px]"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <circle
-                    cx={12}
-                    cy={12}
-                    r="11.5"
-                    fill="#D9D9D9"
-                    stroke="white"
-                  />
-                </svg>
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[41px] top-[-1px]"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <circle
-                    cx={12}
-                    cy={12}
-                    r="11.5"
-                    fill="#D9D9D9"
-                    stroke="white"
-                  />
-                </svg>
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[55px] top-[-1px]"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <circle
-                    cx={12}
-                    cy={12}
-                    r="11.5"
-                    fill="#D9D9D9"
-                    stroke="white"
-                  />
-                </svg>
+               <Image src={FollowerAvatars} width={80} height={24} objectFit="cover" alt="avatars"/>
               </div>
               <p className="flex-grow-0 flex-shrink-0 text-sm text-left text-[#a8aebf]">
                 +200 followers
               </p>
             </div>
-            <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[140px] h-10 relative overflow-hidden gap-2.5 p-2.5 rounded-xl bg-[#fafafc]/5 border border-[#e8eef3]/10">
-              <p className="flex-grow-0 flex-shrink-0 text-base text-left text-white">
-                Follow me
-              </p>
-            </div>
+            <Link href={'https://x.com/fuatgui'} target="_blank" className="flex justify-center items-center text-white flex-grow-0 flex-shrink-0 w-[140px] h-10 relative overflow-hidden gap-2.5 p-2.5 rounded-xl bg-[#fafafc]/5 border border-[#e8eef3]/10 hover:bg-gray-900 transition ease-in-out delay-10">
+            <FaXTwitter />
+
+              Follow Me</Link>
+            
           </div>
           <HeroContent></HeroContent>
         </div>

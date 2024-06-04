@@ -51,14 +51,15 @@ function Bento() {
       </div>
       <div className="flex md:flex-row flex-col  gap-[16px]">
         <div className="flex flex-col  min-h-max  relative gap-3.5 p-8 rounded-3xl bg-[#171B27] border border-[#e8eef325]">
-          <div className="inline-flex relative gap-2.5 px-4 py-0.5 rounded-[65px] bg-gray-800">
+          <div className="inline-flex items-center relative gap-1 px-4 py-0.5 rounded-[65px] bg-gray-800 max-w-max">
+            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
             <p className=" h-5 text-sm text-left text-[#fafafa]">
               Available for new projects
             </p>
           </div>
           <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#fafafa]">
             <span className="flex-grow-0 flex-shrink-0 text-base text-left text-[#fafafa]">
-              Hey there! This is Chris Evans 🌱 a passionate product
+              Hey there! This is Fuat Genc 🌱 a passionate product
             </span>
           </p>
         </div>
@@ -184,7 +185,7 @@ function Bento() {
               </svg>
             </div>
           </div>
-          <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 h-100  relative gap-3.5 p-8 rounded-3xl bg-[#171B27] border border-[#e8eef325]">
+          <div className="flex flex-col text-white justify-start items-start flex-grow-0 flex-shrink-0 h-100  relative gap-3.5 p-8 rounded-3xl bg-[#171B27] border border-[#e8eef325]">
           <p className="font-bold text-2xl">Location</p>
 
             <p>🌎 Istanbul, Turkiye</p>

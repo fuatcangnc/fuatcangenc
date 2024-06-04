@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "UI Designer & Front-End Developer",
   description: "Fuatcan Genc is a UI Designer based in Istanbul, Turkiye. He focuses on creating simple, usable, visually appealing websites and interfaces.",
+  icons:{
+    icon:'/icon.ico'
+  }
 };
 
 export default function RootLayout({
