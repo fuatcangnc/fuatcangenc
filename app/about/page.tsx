@@ -7,7 +7,7 @@ import { Metadata } from "next"
 function page() {
   return (
     <section>
-        <SeoMetaData title={site_metadata.about?.title} description={site_metadata.about?.desc}/>dsaddsadsaaaaaaaaaaaaaaaaaaa
+        <SeoMetaData title={site_metadata.about?.title} description={site_metadata.about?.desc}/>fuat
     </section>
   )
 }
