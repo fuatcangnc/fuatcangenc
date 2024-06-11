@@ -11,9 +11,13 @@ import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { useSectionInView } from "@/lib/hooks";
+import { MdKeyboardArrowLeft,MdKeyboardArrowRight } from "react-icons/md";
+
 function Hero() {
+  const {ref}=useSectionInView("Home",0.5)
   return (
-    <section className="mb-28  sm:mb-0 scroll-mt-[100rem]">
+    <section className="mb-28  sm:mb-0 scroll-mt-[100rem]" ref={ref} id="home">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div>
@@ -44,11 +48,19 @@ function Hero() {
       </div>.
 
       <motion.h1 className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl" initial={{opacity:0,y:100}} animate={{opacity:1,y:0}}>
-      <span className="font-bold">Hello, I m Fuat.</span> I m a
-        <span className="font-bold">frontend developer and designer</span> with
-        <span className="font-bold">3 years</span> of experience. I enjoy
-        building <span className="italic">sites & apps</span>. My focus is
-        <span className="underline">React (Next.js)</span>.
+      <span className="font-bold">Hello, I m Fuat.</span> I m a 
+        <span className="font-bold flex items-center "> <MdKeyboardArrowLeft color="#0808FF"/> <span className="text-[#0808FF]">frontend developer</span> <MdKeyboardArrowRight color="#0808FF" />
+        and  <span className="w-min h-min p-2 border-2 border-purple-600 relative"> <span className="w-2 h-2 bg-white border border-purple-600 absolute -top-1 -left-1">
+        
+
+          </span> 
+          <span className="w-2 h-2 bg-white border border-purple-600 absolute -top-1 -right-1"></span>
+          <span className="w-2 h-2 bg-white border border-purple-600 absolute -bottom-1 -right-1"></span>
+          <span className="w-2 h-2 bg-white border border-purple-600 absolute -bottom-1 -left-1"></span>
+          <span className="text-purple-600">&nbsp;designer</span></span></span> with
+        <span className="font-bold"> 3 years</span> of experience. I enjoy
+        building <span className="italic">sites & apps</span>. My focus is 
+        <span className="underline"> React (Next.js)</span>.
       </motion.h1>
 
 

@@ -5,32 +5,41 @@ import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
+import { GoHome } from "react-icons/go";
+import { CiUser } from "react-icons/ci";
+import { FaRegFolderOpen } from "react-icons/fa";
+import { IconType } from "react-icons";
 
-
-export const navLinks=[
+interface NavLink {
+  name: string;
+  hash: string;
+  icon: IconType;
+}
+export const navLinks:NavLink[]=[
     {
         name:'Home',
-        hash:'#home'
+        hash:'#home',
+        icon:GoHome
     },
     {
         name: "About",
         hash: "#about",
+        icon:CiUser
       },
       {
         name: "Projects",
         hash: "#projects",
+        icon:FaRegFolderOpen
       },
       {
         name: "Skills",
         hash: "#skills",
-      },
-      {
-        name: "Experience",
-        hash: "#experience",
+        icon:FaRegFolderOpen
       },
       {
         name: "Contact",
         hash: "#contact",
+        icon:FaRegFolderOpen
       },
 ]
 

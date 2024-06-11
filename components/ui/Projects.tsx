@@ -1,11 +1,14 @@
+"use client"
 import React from 'react'
 import SectionHeading from '../shared/SectionHeading'
 import { projectsData } from '@/data'
 import ProjectCard from './ProjectCard'
+import { useSectionInView } from '@/lib/hooks'
 
 function Projects() {
+  const {ref}=useSectionInView("Projects",0.5)
   return (
-    <div>
+    <div ref={ref} id='projects'>
         <SectionHeading>My Projects</SectionHeading>
         <div className='flex flex-col gap-2'>
             {

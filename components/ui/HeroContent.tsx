@@ -1,13 +1,17 @@
 "use client"
 import { homePageData } from "@/constants";
 import { ChevronsRight } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSocials from "./HeroSocials";
-import {motion} from "framer-motion"
+import {motion,useInView} from "framer-motion"
 import SectionHeading from "../shared/SectionHeading";
+import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hooks";
+
 function HeroContent() {
+  const {ref}=useSectionInView("About",0.5)
   return (
-    <section className="flex flex-col gap-1 text-gray-800">
+    <section className="flex flex-col gap-1 text-gray-800" ref={ref} id="about">
       {/* <h1 className="text-dark text-2xl font-ranade-bold ">
         {homePageData?.tagline2}
       </h1> */}
