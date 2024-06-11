@@ -3,11 +3,16 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import {client} from "@/sanity/lib/client";
 import { Metadata, ResolvingMetadata } from "next";
+import ImageComponent from "@/components/ui/ImageComponent";
 export const revalidate = 30
 type Props = {
   params: { slug: string }
 }
- 
+const components = {
+  types: {
+    image: ImageComponent,
+  },
+};
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
@@ -29,7 +34,14 @@ const getPost = async (slug: string) => {
         title,
         body,
         publishedAt,
-        slug
+        slug,
+         mainImage {
+          asset->{
+            _id,
+            url
+          },
+          alt
+        }
       }
     `;
     const post = await client.fetch(query, { slug });
@@ -47,12 +59,12 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert mx-auto">
+    <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert flex flex-col items-center max-w-[50rem]  mx-auto ">
       <Link href="/">
       </Link>
       <h1 className="text-3xl font-bold">{post.title}</h1>
       <div className="text-gray-600">
-        <PortableText value={post.body} />
+        <PortableText value={post.body} components={components} />
       </div>
       <p className="text-gray-400">
         {new Date(post.publishedAt).toDateString()}
