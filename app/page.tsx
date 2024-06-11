@@ -9,14 +9,20 @@ import PostCard from "@/components/ui/PostCard";
 import Bento from "@/components/ui/Bento";
 import "./globals.css";
 import Sidebar from "@/components/ui/Sidebar";
+import HeroSocials from "@/components/ui/HeroSocials";
+import Divider from "@/components/shared/Divider";
+import HeroContent from "@/components/ui/HeroContent";
+import Projects from "@/components/ui/Projects";
 
 export default async function Home() {
 
   return (
-    <main className="flex flex-col ">
-      <Sidebar></Sidebar>
-
-
+    <main className="flex flex-col items-center max-w-[50rem] text-center mx-auto">
+      <Hero/>
+      <Divider/>
+      <HeroContent/>
+      <Divider/>
+<Projects/>
       
     </main>
   );

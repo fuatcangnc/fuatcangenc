@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {
   FaBehance,
@@ -10,42 +11,48 @@ import {
 type SocialTypes = {
   text: string;
   icon: JSX.Element;
+  href:string
 };
 const socials: SocialTypes[] = [
   {
+    href:'https://www.behance.net/fuatcangenc',
     text: "Behance",
     icon: <FaBehance />,
   },
   {
+    href:'https://dribbble.com/fuatcanui',
     text: "Dribble",
     icon: <FaDribbble />,
   },
   {
+    href:'https://github.com/fuatcangnc',
     text: "Github",
     icon: <FaGithub />,
   },
   {
-    text: "Twitter",
+    href:'https://x.com/fuatgui',
+    text: "X (Twitter)",
     icon: <FaTwitter />,
   },
 ];
 function HeroSocials() {
   return (
-    <>
+    <div className="flex gap-1">
       {socials?.map((social, index) => (
-        <div
+        <Link href={social.href}
+        target="_blank"
           key={index}
-          className="flex group justify-center items-center flex-grow h-10 relative gap-1 px-2 py-4 rounded-xl bg-gray-800 hover:bg-gray-300 cursor-pointer  border border-[#e8eef33b]"
+          className="flex group justify-center items-center flex-grow h-10 relative gap-1 px-2 py-4 rounded-xl bg-white  hover:bg-gray-800 ursor-pointer  border border-[#e8eef33b]"
         >
-          <div className="text-[#fff] group-hover:text-gray-800 transition-colors duration-300">
+          <div className="text-[#1a1a1a] group-hover:text-white transition-colors duration-300">
             {social?.icon}
           </div>
-          <p className="flex-grow-0 flex-shrink-0 text-sm text-left text-[#fff] group-hover:text-gray-800 transition-colors duration-300">
+          {/* <p className="flex-grow-0 flex-shrink-0 text-sm text-left text-[#1a1a1a] group-hover:text-white transition-colors duration-300">
             {social?.text}
-          </p>
-        </div>
+          </p> */}
+        </Link>
       ))}
-    </>
+    </div>
   );
 }
 
