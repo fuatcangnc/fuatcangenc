@@ -1,74 +1,83 @@
 import { groq } from "next-sanity";
-import { PortableText } from "@portabletext/react";
 import Link from "next/link";
-import {client} from "@/sanity/lib/client";
+import { client } from "@/sanity/lib/client";
 import { Metadata, ResolvingMetadata } from "next";
-import ImageComponent from "@/components/ui/ImageComponent";
-export const revalidate = 30
+import TextBlock from "@/components/ui/CodeBlock/TextandImageBlock";
+
+export const revalidate = 30;
+
 type Props = {
-  params: { slug: string }
-}
-const components = {
-  types: {
-    image: ImageComponent,
-  },
+  params: { slug: string };
 };
+
+
+
+
+
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
- 
-  // fetch data
-  const project = await getPost(params.slug)
- 
-  return {
-    title: project.title,
+  try {
+    const project = await getPost(params.slug);
+    return {
+      title: project.title,
+    };
+  } catch (error) {
+    console.error("Error fetching project:", error);
+    return {
+      title: "Error",
+    };
   }
 }
 
 const getPost = async (slug: string) => {
   try {
     const query = groq`
-      *[_type == "post" && slug.current == $slug][0] {
+      *[_type == "post" && slug.current == $slug][0]{
         _id,
         title,
-        body,
         publishedAt,
-        slug,
-         mainImage {
-          asset->{
-            _id,
-            url
+        body[]{
+          ...,
+          _type == "image" => {
+            "imageUrl": asset->url,
+            alt
           },
-          alt
+          _type == "code" => {
+            language,
+            code
+          }
         }
       }
     `;
     const post = await client.fetch(query, { slug });
     return post;
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching post:", error);
+    return null;
   }
 };
 
-export default async function Page({ params }: Props) {
-  const post = await getPost(params.slug);
+export default async  function Page({ params }: Props) {
+  const { slug } = params;
 
-  if (!post) {
-    return <div>Post not found</div>;
-  }
+  const post=await getPost(slug)
+
+
 
   return (
     <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert flex flex-col items-center max-w-[50rem]  mx-auto ">
-      <Link href="/">
-      </Link>
       <h1 className="text-3xl font-bold">{post.title}</h1>
       <div className="text-gray-600">
-        <PortableText value={post.body} components={components} />
+        <TextBlock value={post.body}/>
       </div>
-      <p className="text-gray-400">
-        {new Date(post.publishedAt).toDateString()}
-      </p>
+      {post.publishedAt && (
+        <p className="text-gray-400">
+          {new Date(post.publishedAt).toDateString()}
+        </p>
+      )}
     </article>
   );
 }
