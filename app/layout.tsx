@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: "Fuatcan Genc is a UI Designer based in Istanbul, Turkiye. He focuses on creating simple, usable, visually appealing websites and interfaces.",
   icons:{
     icon:'/icon.ico'
+  },
+  alternates:{
+    canonical:process.env.SITE_URL 
   }
 };
 
