@@ -1,5 +1,4 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { getProjectBySlug } from "@/lib/posts";
 import { getMetadata } from "@/lib/metadata";
 import { groq, PortableText } from "next-sanity";
 import {client} from "@/sanity/lib/client";
