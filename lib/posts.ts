@@ -1,22 +1,18 @@
-import path from 'path'
-import slugify from 'slugify'
-import { getResourceBySlug } from './resource'
-import matter from 'gray-matter'
-import fs from "fs"
+import { client } from "@/sanity/lib/client";
+export const revalidate = 60;
 
+const query = `*[_type == "post"] {
+    title,
+    slug,
+    body,
+    publishedAt
+  }
+`;
 
-
-const PROJECTS_PATH = path.join(process.cwd(), 'projects')
-
-
-export const getProjectBySlug=async(slug:string)=>{
-    const markdownFile =fs.readFileSync(path.join('projects', slug + '.mdx'), 'utf-8')
-
-    const{data, content} = matter(markdownFile)
-
-    return {
-        data,
-        slug,
-        content
-    }
+export const getPosts=async()=>{
+const data= await client.fetch(query)
+.then((data)=>{
+    return data
+})
+return data
 }
